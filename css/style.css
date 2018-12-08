@@ -21,6 +21,10 @@
   height: 100vh;
 }
 
+body {
+  background: #f9f9f9;  
+}
+
 #main-body-text {
 	margin: 0 auto;
 	width: 75%;
@@ -51,7 +55,7 @@
 /* The styling for the static div. */
 .static {
   background: #f9f9f9;
-  height: 500px;
+  height: 100vh;
 }
 
 /* Sets the actual background images to adorable kitties. This part is crucial. */
@@ -84,7 +88,11 @@
 }*/
 
 
-
+@media only screen and (max-device-width: 1366px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+}
 
 
 
