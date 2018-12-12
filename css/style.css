@@ -68,15 +68,6 @@ body {
   margin-top: 40px;
 }
 
-.footer {
-  height: 200px;
-}
-
-#contact {
-  padding-left:10px;
-  padding-top: 30px;
-}
-
 .bg1::after {
   background-image: url('https://i.imgur.com/XAiII4N.gif');
   background-repeat: no-repeat;
@@ -119,25 +110,40 @@ body {
   height: auto;
 }
 
-/*.column {
-  float: left;
-  width: 50%;
-  padding: 5px;
+.video {
+  padding-top: 20px;
 }
 
-.column img {
-  width: 100%;
+.footer {
+  height: 200px;
 }
 
-.row {
-  padding-bottom: 100px;
+#contact {
+  padding-left:10px;
+  padding-top: 30px;
 }
 
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}*/
+#icons {
+  padding-top: 60px;
+  padding-left: 25px;
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+}
+
+#icons > div {
+    display: inline-block;
+    display: -moz-inline-box;
+    *display: inline; /* For IE7 */
+    zoom: 1; /* Trigger hasLayout */
+    width: 30%;
+    text-align: center;
+}
+
+#icons > div > a > i {
+  color: black;
+  font-size: 50px;
+}
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 500px) {
