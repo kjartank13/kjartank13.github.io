@@ -37,6 +37,7 @@ body {
   line-height: 1.5em;
 	font-size: 20px;
 	font-family: 'Calibri', sans-serif;
+  text-align: justify;
 }
 
 .parallax::after {
