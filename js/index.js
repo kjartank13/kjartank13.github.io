@@ -18,16 +18,32 @@ function setParallaxHeight() {
 	let canaryHeight = $('#canary').height();
 	$('.section.parallax').each(function() {
 		$(this).height(canaryHeight + 20);
-		if ($(this).hasClass('bg3') || $(this).hasClass('bg4'))
-			$(this).height(canaryHeight + 40);
+		if ($(this).hasClass('bg3')) {
+			$(this).height($('#topImg').height() + $('#sideImg1').height());
+		}
 	});
 	
 }
 
+function sideImgPadding() {
+	let sideImgWidth = $('#sideImg1').width();
+	let windowWidth = $('#sideImgs').width();
+	let diff = windowWidth - sideImgWidth - sideImgWidth;
+	$('#sideImgs img').each(function() {
+		$(this).css('padding-left', Math.floor(diff / 3) + 'px');
+	});
+}
+
 $(function() {
+	sideImgPadding();
 	setTextAreaHeight();
 	setParallaxHeight();
+	$('#canary').hide();
+	$('#sideImgs').height($('#topImg').height());
 	$(window).on('resize', () => {
+
+	$('#sideImgs').height($('#topImg').height());
+		sideImgPadding();
 		setTextAreaHeight();
 		setParallaxHeight();
 	});

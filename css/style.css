@@ -21,6 +21,11 @@
   height: 100vh;
 }
 
+.smaller {
+  width: 80%;
+  margin: 0 auto;
+}
+
 body {
   background: #f9f9f9;  
 }
@@ -29,6 +34,7 @@ body {
 	margin: 0 auto;
 	width: 60%;
 	padding-top: 20px;
+  line-height: 1.5em;
 	font-size: 20px;
 	font-family: 'Calibri', sans-serif;
 }
@@ -70,21 +76,6 @@ body {
   background-image: url('https://i.imgur.com/0ZOuKA9.jpg');
   background-repeat: no-repeat;
 }
-/*
-.bg3::after {
-  background-image: url('https://i.imgur.com/YvMCxlA.jpg');
-  background-repeat: no-repeat;
-}
-
-.bg4::after {
-  background-image: url('https://i.imgur.com/RcXeKBj.jpg');
-  background-repeat: no-repeat;
-}
-
-.bg5::after {
-  background-image: url('https://i.imgur.com/DV6womG.jpg');
-  background-repeat: no-repeat;
-}*/
 
 .iframe-container{
   position: relative;
@@ -100,19 +91,50 @@ body {
   height: 100%;
 }
 
-/*.bg3::after {
-  background-image: url('https://i.imgur.com/0ZOuKA9.jpg');
-}*/
-
-
-@media only screen and (max-device-width: 1366px) {
-  .parallax {
-/*    background-attachment: scroll;*/
-    /*height: 50vh;*/
-  }
+#topImg {
+  width: 65%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
 }
 
+#sideImgs {
+  padding-top: 20px;
+  display: block;
+  margin: 0 auto;
+}
 
+#sideImgs img {
+  width: 45% !important;
+  height: auto;
+}
+
+/*.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+.column img {
+  width: 100%;
+}
+
+.row {
+  padding-bottom: 100px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}*/
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 500px) {
+  .column {
+    width: 100%;
+  }
+}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
