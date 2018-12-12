@@ -34,16 +34,26 @@ function sideImgPadding() {
 	});
 }
 
+function videoPadding() {
+	let iframeWidth = $('iframe').width();
+	let windowWidth = $('.video').width();
+	let diff = windowWidth - iframeWidth;
+	$('iframe').css('padding-left', Math.floor(diff / 2));
+	$('.video').height($('iframe').height());
+}
+
 $(function() {
 	sideImgPadding();
+	videoPadding();
 	setTextAreaHeight();
 	setParallaxHeight();
 	$('#canary').hide();
 	$('#sideImgs').height($('#topImg').height());
-	$(window).on('resize', () => {
 
-	$('#sideImgs').height($('#topImg').height());
+	$(window).on('resize', () => {
+		$('#sideImgs').height($('#topImg').height());
 		sideImgPadding();
+		videoPadding();
 		setTextAreaHeight();
 		setParallaxHeight();
 	});
