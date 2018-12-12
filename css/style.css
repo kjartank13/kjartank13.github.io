@@ -27,10 +27,10 @@ body {
 
 #main-body-text {
 	margin: 0 auto;
-	width: 75%;
-	padding-top: 70px;
+	width: 60%;
+	padding-top: 20px;
 	font-size: 20px;
-	font-family: 'Sawarabi Mincho', sans-serif;
+	font-family: 'Calibri', sans-serif;
 }
 
 .parallax::after {
@@ -55,10 +55,12 @@ body {
 /* The styling for the static div. */
 .static {
   background: #f9f9f9;
-  height: 100vh;
 }
 
-/* Sets the actual background images to adorable kitties. This part is crucial. */
+.static.text {
+  margin-top: 40px;
+}
+
 .bg1::after {
   background-image: url('https://media.giphy.com/media/etwM1F9mggq7oshQPm/giphy.gif');
   background-repeat: no-repeat;
@@ -68,12 +70,27 @@ body {
   background-image: url('https://i.imgur.com/0ZOuKA9.jpg');
   background-repeat: no-repeat;
 }
+/*
+.bg3::after {
+  background-image: url('https://i.imgur.com/YvMCxlA.jpg');
+  background-repeat: no-repeat;
+}
+
+.bg4::after {
+  background-image: url('https://i.imgur.com/RcXeKBj.jpg');
+  background-repeat: no-repeat;
+}
+
+.bg5::after {
+  background-image: url('https://i.imgur.com/DV6womG.jpg');
+  background-repeat: no-repeat;
+}*/
 
 .iframe-container{
   position: relative;
   width: 100%;
   padding-bottom: 56.25%; 
-  height: 0;
+  height: 100%
 }
 .iframe-container iframe{
   position: absolute;
@@ -90,7 +107,8 @@ body {
 
 @media only screen and (max-device-width: 1366px) {
   .parallax {
-    background-attachment: scroll;
+/*    background-attachment: scroll;*/
+    /*height: 50vh;*/
   }
 }
 
