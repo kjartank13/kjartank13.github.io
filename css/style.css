@@ -78,6 +78,10 @@ body {
   background-repeat: no-repeat;
 }
 
+.bg3 {
+  padding-top: 15px;
+}
+
 .iframe-container{
   position: absolute;
   width: 80%;

@@ -19,6 +19,7 @@ function setParallaxHeight() {
 	$('.section.parallax').each(function() {
 		$(this).height(canaryHeight + 20);
 		if ($(this).hasClass('bg3')) {
+			console.log($('#topImg').height() + $('#sideImg1').height());
 			$(this).height($('#topImg').height() + $('#sideImg1').height());
 		}
 	});
@@ -43,12 +44,14 @@ function videoPadding() {
 }
 
 $(function() {
-	sideImgPadding();
-	videoPadding();
-	setTextAreaHeight();
-	setParallaxHeight();
-	$('#canary').hide();
-	$('#sideImgs').height($('#topImg').height());
+	setTimeout(() => {
+		sideImgPadding();
+		videoPadding();
+		setTextAreaHeight();
+		setParallaxHeight();
+		$('#canary').hide();
+		$('#sideImgs').height($('#topImg').height());
+	}, 100);
 
 	$(window).on('resize', () => {
 		$('#sideImgs').height($('#topImg').height());
