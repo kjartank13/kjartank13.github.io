@@ -1,0 +1,302 @@
+html {
+    overflow-y: scroll;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    font-family: 'Helvetica Neue', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+  
+  .container {
+    max-width: 600px;
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .banner {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 2rem auto;
+    border-radius: 12px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #ccc;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+  
+  nav li {
+    margin: 0.5rem 0;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #66d9ef;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #a6e22e;
+  }
+  
+  footer p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  footer .social-links {
+    margin-bottom: 1rem;
+  }
+  
+  footer .social-links a {
+    color: #888;
+    font-size: 1.75rem;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  footer .social-links a:hover {
+    color: #66d9ef;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .tabs {
+    margin-top: 2rem;
+    min-height: 180px;
+    transition: min-height 0.3s ease;
+  }
+  
+  .tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tab-button {
+    background: none;
+    border: 1px solid #444;
+    color: #ccc;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  .tab-button:hover {
+    background: #333;
+    color: #fff;
+  }
+  
+  .tab-button.active {
+    background: #66d9ef;
+    color: #111;
+    font-weight: bold;
+  }
+  
+  .tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .tab-content.active {
+    display: block;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+  .event-link {
+    color: #a6e22e;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: #66d9ef;
+    text-underline-offset: 3px;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+  }
+  
+  .event-link:hover {
+    color: #66d9ef;
+    text-decoration-color: #a6e22e;
+  }
+  
+  .artist-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #333;
+    font-size: 1.1rem;
+    color: #ddd;
+    transition: color 0.3s ease;
+    gap: 0.5rem;
+  }
+  
+  .artist-list li:last-child {
+    border-bottom: none;
+  }
+  
+  .artist-list li:hover {
+    color: #66d9ef;
+  }
+  
+  .artist-name {
+    font-weight: 600;
+    flex-grow: 1;
+  }
+  
+  /* Shared icon styles */
+  .artist-list a {
+    color: #66d9ef;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .artist-list a:hover {
+    color: #a6e22e;
+  }
+  
+  /* Optional: distinguish icons by platform */
+  .artist-list a .artist-icon {
+    margin-left: 0.3rem;
+  }
+  
+  /* If you want to custom-style Bluesky icons differently */
+  .artist-list a.bsky-icon {
+    color: #58a6ff;
+  }
+  
+  .artist-list a.bsky-icon:hover {
+    color: #a6e22e;
+  }
+  
+  .tab-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
+    text-align: left;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .tab-content ul li {
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.5rem;
+    border-left: 4px solid #66d9ef;
+    color: #ddd;
+    transition: background 0.3s ease;
+  }
+  
+  .tab-content ul li:hover {
+    background-color: #333;
+  }
+  
+  .tab-content ul a {
+    color: #66d9ef;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .tab-content ul a:hover {
+    color: #a6e22e;
+    text-decoration: underline;
+  }
+
+  .language-switcher {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+    font-size: 1rem;
+    color: #66d9ef;
+    font-weight: bold;
+    user-select: none;
+    cursor: pointer;
+  }
+  
+  .lang-toggle {
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+  }
+  
+  .lang-toggle:hover {
+    color: #a6e22e;
+  }
+  
+  .lang-toggle.selected {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    p, li {
+      font-size: 1rem;
+    }
+  
+    .tab-button {
+      font-size: 0.95rem;
+      padding: 0.5rem;
+      flex: 1 1 100%;
+    }
+  
+    .tab-buttons {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    footer .social-links a {
+      font-size: 1.5rem;
+    }
+  }
+  

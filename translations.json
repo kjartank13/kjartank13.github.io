@@ -1,0 +1,62 @@
+{
+    "is": {
+        "tabs": {
+            "about": "Um Litrófuna",
+            "artists": "Listafólkið okkar",
+            "events": "Viðburðir",
+            "help": "Viltu hjálpa?"
+        },
+        "about": {
+            "title": "Um Litrófuna",
+            "p1": "Litrófan er sjálfstætt skipulagður hinsegin og skynsegin listamarkaður, þar sem við búum til rými sem við sjálf höfum þurft – öruggt, aðgengilegt og opið öllum. Með því að kaupa vörur úr versluninni hjálpar þú okkur að halda næsta viðburð og styður uppbyggingu Litrófunnar og hennar starfs.",
+            "p2": "Við höfum þegar haldið stórkostlegan markað í Borgarbókasafninu Grófinni þar sem hátt í 40 listamenn tóku þátt og gestir streymdu að. Næsta markmið okkar er \"Litrófan – Pride Edition\" í tilefni Hinsegin daga í Reykjavík!"
+        },
+        "artists": {
+            "title": "Listafólkið sem við höfum starfað með"
+        },
+        "events": {
+            "title": "Viðburðir",
+            "date": "Næsti viðburður: 8. Ágúst, Borgarbókasafn Grófinni, Reykjavík.",
+            "linkText": "Facebook viðburður"
+        },
+        "help": {
+            "title": "Vertu með í að skapa næstu Litrófu!",
+            "p1": "Litrófan er ekki styrkt af opinberum aðilum og það er dýrt að fóðra þessa skepnu!",
+            "p2": "Ef þú vilt styrkja framtíð Litrófunnar geturðu:",
+            "bankInfo": "Lagt inn á <strong>2200-15-014897</strong> | <strong>Kt:</strong> 241093-2209",
+            "store1": "Verslað Litrófu varning",
+            "storeLink": "hér",
+            "p3": "Allt sem safnast fer beint í að byggja upp Litrófuna og hennar framtíðar starf."
+        }
+    },
+    "en": {
+        "tabs": {
+            "about": "About Litrófan",
+            "artists": "Our Artists",
+            "events": "Events",
+            "help": "Want to help?"
+        },
+        "about": {
+            "title": "About Litrófan",
+            "p1": "Litrófan is an independently organized queer and neurodivergent art market, where we create the space we ourselves have needed – safe, accessible, and open to all. By purchasing items from our store, you help us fund the next event and support the growth and work of Litrófan.",
+            "p2": "We've already hosted a fantastic market at the Reykjavík City Library in Grófin where nearly 40 artists participated and guests came in droves. Our next goal is \"Litrófan – Pride Edition\" in celebration of Reykjavík Pride!"
+        },
+        "artists": {
+            "title": "Artists we've worked with"
+        },
+        "events": {
+            "title": "Events",
+            "date": "Next event: August 8th, Reykjavík City Library Grófin.",
+            "linkText": "Facebook Event"
+        },
+        "help": {
+            "title": "Be a part of creating the next Litrófan!",
+            "p1": "Litrófan isn’t publicly funded – and feeding this creature is expensive!",
+            "p2": "If you want to support Litrófan’s future, you can:",
+            "bankInfo": "Donate to <strong>2200-15-014897</strong> | <strong>ID:</strong> 241093-2209",
+            "store1": "Buy Litrófan merchandise",
+            "storeLink": "here",
+            "p3": "All funds go directly into building and sustaining Litrófan and its future work."
+        }
+    }
+}

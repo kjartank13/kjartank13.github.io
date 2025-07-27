@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="is">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Litrófan</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="icon" href="assets/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/android-chrome-512x512.png">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Language switcher -->
+        <div class="language-switcher">
+            <span id="lang-is" class="lang-toggle selected">IS</span> /
+            <span id="lang-en" class="lang-toggle">EN</span>
+        </div>
+
+        <!-- Banner -->
+        <img src="assets/banner.png" alt="Site Banner" class="banner" />
+
+        <!-- Tab buttons -->
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-button active" data-tab="tab1" data-i18n="tabs.about"></button>
+                <button class="tab-button" data-tab="tab2" data-i18n="tabs.artists"></button>
+                <button class="tab-button" data-tab="tab3" data-i18n="tabs.events"></button>
+                <button class="tab-button" data-tab="tab4" data-i18n="tabs.help"></button>
+            </div>
+
+            <!-- Tab 1: About -->
+            <div class="tab-content active" id="tab1">
+                <h2 data-i18n="about.title"></h2>
+                <p data-i18n="about.p1"></p>
+                <p data-i18n="about.p2"></p>
+            </div>
+
+            <!-- Tab 2: Artists -->
+            <div class="tab-content" id="tab2">
+                <h2 data-i18n="artists.title"></h2>
+                <ul class="artist-list" id="artist-list">
+                    <!-- Artists will be injected here -->
+                </ul>
+            </div>
+
+            <!-- Tab 3: Events -->
+            <div class="tab-content" id="tab3">
+                <h2 data-i18n="events.title"></h2>
+                <p>
+                    <span data-i18n="events.date"></span>
+                    <a href="https://www.facebook.com/events/1495903845101944" class="event-link"
+                        data-i18n="events.linkText"></a>
+                </p>
+            </div>
+
+            <!-- Tab 4: Help -->
+            <div class="tab-content" id="tab4">
+                <h2 data-i18n="help.title"></h2>
+                <p data-i18n="help.p1"></p>
+                <p data-i18n="help.p2"></p>
+                <ul>
+                    <li data-i18n="help.bankInfo"></li>
+                    <li>
+                        <span data-i18n="help.store1"></span>
+                        <a href="https://blekotek.is/blogs/news/litrofan-listamarkaur" class="event-link"
+                            data-i18n="help.storeLink"></a>
+                    </li>
+                </ul>
+                <p data-i18n="help.p3"></p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="https://blekotek.is">Blekótek</a></li>
+                <li><a href="https://www.youtube.com/watch?v=TrsvTqcMrKo">Very important info</a></li>
+            </ul>
+        </nav>
+
+        <!-- Footer -->
+        <footer>
+            <div class="social-links">
+                <a href="https://instagram.com/litrofanartmarket" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:blekotek@blekotek.is" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p>&copy; 2025 Litrófan</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
