@@ -7,6 +7,9 @@
         content="Litrófan is an independently organized queer and neurodivergent art market based in Reykjavík. Join us for community, creativity, and connection." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Litrófan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="icon" href="assets/favicon.ico" sizes="any">
@@ -31,92 +34,102 @@
 </head>
 
 <body>
-    <div class="container">
-        <!-- Language switcher -->
-        <div class="language-switcher">
-            <span id="lang-is" class="lang-toggle selected">IS</span> /
-            <span id="lang-en" class="lang-toggle">EN</span>
-        </div>
+    <div class="spectrum-bar" aria-hidden="true"></div>
 
+    <header class="site-header">
+        <div class="language-switcher" role="group" aria-label="Language">
+            <button id="lang-is" class="lang-toggle selected" type="button">IS</button>
+            <button id="lang-en" class="lang-toggle" type="button">EN</button>
+        </div>
+    </header>
+
+    <main class="container">
         <!-- Banner -->
-        <img src="assets/banner.png" class="banner" alt="Litrófan queer art market banner in Reykjavík" />
+        <h1 class="hero">
+            <img src="assets/banner.png" class="banner" alt="Litrófan queer art market banner in Reykjavík" />
+        </h1>
 
         <!-- Tab buttons -->
         <div class="tabs">
-            <div class="tab-buttons">
+            <nav class="tab-buttons" aria-label="Sections">
                 <button class="tab-button active" data-tab="tab1" data-i18n="tabs.about"></button>
                 <button class="tab-button" data-tab="tab-news" data-i18n="tabs.news"></button>
                 <button class="tab-button" data-tab="tab2" data-i18n="tabs.artists" hidden></button>
                 <button class="tab-button" data-tab="tab3" data-i18n="tabs.events"></button>
                 <button class="tab-button" data-tab="tab4" data-i18n="tabs.help"></button>
-            </div>
+            </nav>
 
             <!-- Tab 1: About -->
-            <div class="tab-content active" id="tab1">
+            <section class="tab-content active" id="tab1">
                 <h2 data-i18n="about.title"></h2>
                 <p data-i18n="about.p1"></p>
                 <p data-i18n="about.p2"></p>
-            </div>
+            </section>
 
             <!-- News: loaded from a published Google Sheet (see NEWS_CSV_URL in script.js) -->
-            <div class="tab-content" id="tab-news">
+            <section class="tab-content" id="tab-news">
                 <h2 data-i18n="news.title"></h2>
                 <div class="news-list" id="news-list"></div>
-            </div>
+            </section>
 
             <!-- Tab 2: Artists -->
-            <div class="tab-content" id="tab2">
+            <section class="tab-content" id="tab2">
                 <h2 data-i18n="artists.title"></h2>
                 <ul class="artist-list" id="artist-list">
                     <!-- Artists will be injected here -->
                 </ul>
-            </div>
+            </section>
 
             <!-- Tab 3: Events -->
-            <div class="tab-content" id="tab3">
+            <section class="tab-content" id="tab3">
                 <h2 data-i18n="events.title"></h2>
-                <p>
-                    <span data-i18n="events.date"></span>
-                    <a href="https://www.facebook.com/events/1495903845101944" aria-label="Litrófan art market Facebook event" class="event-link"
-                        data-i18n="events.linkText"></a>
-                </p>
-            </div>
+                <div class="card event-card">
+                    <i class="fa-regular fa-calendar card-icon" aria-hidden="true"></i>
+                    <div>
+                        <p data-i18n="events.date"></p>
+                        <!-- <a href="https://www.facebook.com/events/1495903845101944" aria-label="Litrófan art market Facebook event" class="event-link"
+                            data-i18n="events.linkText"></a> -->
+                    </div>
+                </div>
+            </section>
 
             <!-- Tab 4: Help -->
-            <div class="tab-content" id="tab4">
+            <section class="tab-content" id="tab4">
                 <h2 data-i18n="help.title"></h2>
                 <p data-i18n="help.p1"></p>
                 <p data-i18n="help.p2"></p>
-                <ul>
-                    <li data-i18n="help.bankInfo"></li>
-                    <li>
-                        <span data-i18n="help.store1"></span>
-                        <a href="https://blekotek.is/blogs/news/litrofan-listamarkaur" class="event-link"
-                            data-i18n="help.storeLink"></a>
+                <ul class="card-list">
+                    <li class="card">
+                        <i class="fa-solid fa-building-columns card-icon" aria-hidden="true"></i>
+                        <span data-i18n="help.bankInfo"></span>
+                    </li>
+                    <li class="card">
+                        <i class="fa-solid fa-bag-shopping card-icon" aria-hidden="true"></i>
+                        <span>
+                            <span data-i18n="help.store1"></span>
+                            <a href="https://blekotek.is/blogs/news/litrofan-listamarkaur" class="event-link"
+                                data-i18n="help.storeLink"></a>
+                        </span>
                     </li>
                 </ul>
                 <p data-i18n="help.p3"></p>
-            </div>
+            </section>
         </div>
-        <nav>
-            <ul>
-                <li><a href="https://blekotek.is">Blekótek</a></li>
-           </ul>
-        </nav>
+    </main>
 
-        <!-- Footer -->
-        <footer>
-            <div class="social-links">
-                <a href="https://instagram.com/litrofanartmarket" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="mailto:litrofan@litrofan.is" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-            <p>&copy; 2025 Litrófan</p>
-        </footer>
-    </div>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="https://instagram.com/litrofanartmarket" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:litrofan@litrofan.is" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        <p class="footer-links"><a href="https://blekotek.is">Blekótek</a></p>
+        <p class="copyright">&copy; 2025 Litrófan</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

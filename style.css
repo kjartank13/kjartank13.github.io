@@ -1,327 +1,386 @@
+:root {
+  --bg: #0e0e10;
+  --surface: #17171a;
+  --border: #2a2a2f;
+  --text: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --text-faint: #71717a;
+  --accent: #7dd3fc;
+  --spectrum: linear-gradient(90deg, #e40303, #ff8c00, #ffed00, #008026, #004dff, #750787);
+  --radius: 14px;
+  --font: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
-    overflow-y: scroll;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Thin rainbow line along the top of the page */
+.spectrum-bar {
+  height: 4px;
+  background: var(--spectrum);
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 1.25rem 0;
+}
+
+.language-switcher {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.lang-toggle {
+  background: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.lang-toggle:hover {
+  color: var(--text);
+}
+
+.lang-toggle.selected {
+  background: var(--text);
+  color: var(--bg);
+}
+
+/* Layout */
+.container {
+  flex: 1;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 4rem;
+}
+
+.hero {
+  margin: 1rem 0 2.5rem;
+}
+
+.banner {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Tabs */
+.tab-buttons {
+  display: flex;
+  gap: 0.25rem;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 2.5rem;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tab-buttons::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-button {
+  flex: none;
+  background: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.tab-button:hover {
+  color: var(--text);
+}
+
+.tab-button.active {
+  background: var(--text);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.35s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Typography */
+h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 1.25rem;
+}
+
+/* Short rainbow underline beneath section headings */
+h2::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin-top: 0.75rem;
+  border-radius: 3px;
+  background: var(--spectrum);
+}
+
+p {
+  color: var(--text-muted);
+  margin-bottom: 1.1rem;
+}
+
+strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.event-link {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(125, 211, 252, 0.4);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.event-link:hover {
+  text-decoration-color: var(--accent);
+}
+
+/* Cards */
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+}
+
+.card p {
+  color: var(--text);
+  margin-bottom: 0.35rem;
+}
+
+.card-icon {
+  flex: none;
+  width: 1.25rem;
+  margin-top: 0.3rem;
+  color: var(--text-faint);
+  text-align: center;
+}
+
+.card-list {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+/* News */
+.news-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.news-item {
+  padding: 1.25rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.news-item h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.news-date {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-faint);
+  margin: 0.15rem 0 0.75rem;
+}
+
+.news-item p:last-child {
+  margin-bottom: 0;
+}
+
+/* Artists */
+.artist-list {
+  list-style: none;
+  border-top: 1px solid var(--border);
+}
+
+.artist-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.artist-name {
+  flex-grow: 1;
+  font-weight: 500;
+}
+
+.artist-list a {
+  display: inline-flex;
+  font-size: 1.15rem;
+  color: var(--text-faint);
+  transition: color 0.2s ease;
+}
+
+.artist-list a:hover {
+  color: var(--accent);
+}
+
+/* Footer */
+.site-footer {
+  padding: 2.5rem 1.25rem 3rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.social-links a {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.social-links a:hover {
+  color: var(--text);
+  border-color: var(--text-faint);
+}
+
+.footer-links {
+  font-size: 0.9375rem;
+  margin-bottom: 0.25rem;
+}
+
+.footer-links a:hover {
+  color: var(--text);
+}
+
+.copyright {
+  font-size: 0.8125rem;
+  color: var(--text-faint);
+  margin: 0;
+}
+
+@media (max-width: 480px) {
   body {
-    background-color: #1e1e1e;
-    color: #f0f0f0;
-    font-family: 'Helvetica Neue', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 2rem;
+    font-size: 1rem;
   }
-  
-  .container {
-    max-width: 600px;
-    width: 100%;
-    padding: 0 1rem;
-    margin: 0 auto;
-    text-align: center;
+
+  h2 {
+    font-size: 1.5rem;
   }
-  
-  .banner {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto 2rem auto;
-    border-radius: 12px;
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  p {
-    font-size: 1.2rem;
+
+  .hero {
     margin-bottom: 2rem;
-    color: #ccc;
   }
-  
-  nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-    padding: 0;
-  }
-  
-  nav li {
-    margin: 0.5rem 0;
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: #66d9ef;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  nav a:hover {
-    color: #a6e22e;
-  }
-  
-  footer p {
-    font-size: 0.9rem;
-    color: #666;
-  }
-  
-  footer .social-links {
-    margin-bottom: 1rem;
-  }
-  
-  footer .social-links a {
-    color: #888;
-    font-size: 1.75rem;
-    margin: 0 0.5rem;
-    transition: color 0.3s ease;
-  }
-  
-  footer .social-links a:hover {
-    color: #66d9ef;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  .tabs {
-    margin-top: 2rem;
-    min-height: 180px;
-    transition: min-height 0.3s ease;
-  }
-  
+
+  /* Tabs become a 2-column grid so every tab is visible without scrolling */
   .tab-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    border-radius: 18px;
   }
-  
+
   .tab-button {
-    background: none;
-    border: 1px solid #444;
-    color: #ccc;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s ease, color 0.3s ease;
+    border-radius: 14px;
+    padding: 0.55rem 0.5rem;
+    font-size: 0.875rem;
   }
-  
-  .tab-button:hover {
-    background: #333;
-    color: #fff;
-  }
-  
-  .tab-button.active {
-    background: #66d9ef;
-    color: #111;
-    font-weight: bold;
-  }
-  
+}
+
+@media (prefers-reduced-motion: reduce) {
   .tab-content {
-    display: none;
-    animation: fadeIn 0.3s ease;
+    animation: none;
   }
-  
-  .tab-content.active {
-    display: block;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  
-  .event-link {
-    color: #a6e22e;
-    font-weight: 600;
-    text-decoration: underline;
-    text-decoration-color: #66d9ef;
-    text-underline-offset: 3px;
-    transition: color 0.3s ease, text-decoration-color 0.3s ease;
-  }
-  
-  .event-link:hover {
-    color: #66d9ef;
-    text-decoration-color: #a6e22e;
-  }
-  
-  .artist-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.4rem 0;
-    border-bottom: 1px solid #333;
-    font-size: 1.1rem;
-    color: #ddd;
-    transition: color 0.3s ease;
-    gap: 0.5rem;
-  }
-  
-  .artist-list li:last-child {
-    border-bottom: none;
-  }
-  
-  .artist-list li:hover {
-    color: #66d9ef;
-  }
-  
-  .artist-name {
-    font-weight: 600;
-    flex-grow: 1;
-  }
-  
-  /* Shared icon styles */
-  .artist-list a {
-    color: #66d9ef;
-    font-size: 1.3rem;
-    transition: color 0.3s ease;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-  }
-  
-  .artist-list a:hover {
-    color: #a6e22e;
-  }
-  
-  /* Optional: distinguish icons by platform */
-  .artist-list a .artist-icon {
-    margin-left: 0.3rem;
-  }
-  
-  /* If you want to custom-style Bluesky icons differently */
-  .artist-list a.bsky-icon {
-    color: #58a6ff;
-  }
-  
-  .artist-list a.bsky-icon:hover {
-    color: #a6e22e;
-  }
-  
-  .tab-content ul {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 1rem;
-    text-align: left;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .tab-content ul li {
-    padding: 0.6rem 1rem;
-    margin-bottom: 0.5rem;
-    border-left: 4px solid #66d9ef;
-    color: #ddd;
-    transition: background 0.3s ease;
-  }
-  
-  .tab-content ul li:hover {
-    background-color: #333;
-  }
-  
-  .tab-content ul a {
-    color: #66d9ef;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  .tab-content ul a:hover {
-    color: #a6e22e;
-    text-decoration: underline;
-  }
-
-  .language-switcher {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    z-index: 1000;
-    font-size: 1rem;
-    color: #66d9ef;
-    font-weight: bold;
-    user-select: none;
-    cursor: pointer;
-  }
-  
-  .lang-toggle {
-    transition: color 0.3s ease, text-decoration 0.3s ease;
-  }
-  
-  .lang-toggle:hover {
-    color: #a6e22e;
-  }
-  
-  .lang-toggle.selected {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-  
-  /* Responsive styles */
-  @media (max-width: 480px) {
-    h1 {
-      font-size: 2rem;
-    }
-  
-    h2 {
-      font-size: 1.5rem;
-    }
-  
-    p, li {
-      font-size: 1rem;
-    }
-  
-    .tab-button {
-      font-size: 0.95rem;
-      padding: 0.5rem;
-      flex: 1 1 100%;
-    }
-  
-    .tab-buttons {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-  
-    footer .social-links a {
-      font-size: 1.5rem;
-    }
-  }
-  
-  .news-list {
-    text-align: left;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .news-item {
-    padding: 1rem 0;
-    border-bottom: 1px solid #333;
-  }
-
-  .news-item:last-child {
-    border-bottom: none;
-  }
-
-  .news-item h3 {
-    margin: 0 0 0.25rem;
-    color: #66d9ef;
-  }
-
-  .news-date {
-    margin: 0 0 0.5rem;
-    font-size: 0.9rem;
-    color: #999;
-  }
+}

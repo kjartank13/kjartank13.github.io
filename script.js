@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateContent(lang) {
         document.getElementById('lang-is').classList.toggle('selected', lang === 'is');
         document.getElementById('lang-en').classList.toggle('selected', lang === 'en');
+        document.documentElement.lang = lang;
 
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
