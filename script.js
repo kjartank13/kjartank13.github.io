@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(err => console.error('Translation load error:', err));
 
     // News: Google Sheet published as CSV (File > Share > Publish to web > CSV).
-    // Columns: date | title_is | text_is | title_en | text_en. One row per item, shown in sheet order.
+    // Columns: date | title_is | text_is | title_en | text_en. One row per item, newest (bottom row) shown first.
     const NEWS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQu4_HFwXSWMkrr7bdokvcSWLmZIEvGg7i6RnPmBaB-bYQtQ3qWF-_v5-oPhaI_0mAnMSc5m4c55fvd/pub?gid=0&single=true&output=csv';
     let newsItems = [];
 
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(text => {
                 const [header, ...rows] = parseCSV(text);
                 const keys = header.map(h => h.trim().toLowerCase());
-                newsItems = rows.map(r => Object.fromEntries(keys.map((k, i) => [k, (r[i] || '').trim()])));
+                newsItems = rows.map(r => Object.fromEntries(keys.map((k, i) => [k, (r[i] || '').trim()]))).reverse();
                 renderNews();
             })
             .catch(err => console.error('News load error:', err));
