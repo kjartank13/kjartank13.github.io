@@ -300,3 +300,28 @@ html {
     }
   }
   
+  .news-list {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .news-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid #333;
+  }
+
+  .news-item:last-child {
+    border-bottom: none;
+  }
+
+  .news-item h3 {
+    margin: 0 0 0.25rem;
+    color: #66d9ef;
+  }
+
+  .news-date {
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+    color: #999;
+  }

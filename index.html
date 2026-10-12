@@ -45,7 +45,8 @@
         <div class="tabs">
             <div class="tab-buttons">
                 <button class="tab-button active" data-tab="tab1" data-i18n="tabs.about"></button>
-                <button class="tab-button" data-tab="tab2" data-i18n="tabs.artists"></button>
+                <button class="tab-button" data-tab="tab-news" data-i18n="tabs.news"></button>
+                <button class="tab-button" data-tab="tab2" data-i18n="tabs.artists" hidden></button>
                 <button class="tab-button" data-tab="tab3" data-i18n="tabs.events"></button>
                 <button class="tab-button" data-tab="tab4" data-i18n="tabs.help"></button>
             </div>
@@ -55,6 +56,12 @@
                 <h2 data-i18n="about.title"></h2>
                 <p data-i18n="about.p1"></p>
                 <p data-i18n="about.p2"></p>
+            </div>
+
+            <!-- News: loaded from a published Google Sheet (see NEWS_CSV_URL in script.js) -->
+            <div class="tab-content" id="tab-news">
+                <h2 data-i18n="news.title"></h2>
+                <div class="news-list" id="news-list"></div>
             </div>
 
             <!-- Tab 2: Artists -->
@@ -94,8 +101,7 @@
         <nav>
             <ul>
                 <li><a href="https://blekotek.is">Blekótek</a></li>
-                <li><a href="https://www.youtube.com/watch?v=TrsvTqcMrKo">Very important info</a></li>
-            </ul>
+           </ul>
         </nav>
 
         <!-- Footer -->

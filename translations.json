@@ -2,6 +2,7 @@
     "is": {
         "tabs": {
             "about": "Um Litrófuna",
+            "news": "Fréttir",
             "artists": "Listafólkið okkar",
             "events": "Viðburðir",
             "help": "Viltu hjálpa?"
@@ -16,7 +17,7 @@
         },
         "events": {
             "title": "Viðburðir",
-            "date": "Næsti viðburður: 8. Ágúst, Borgarbókasafn Grófinni, Reykjavík.",
+            "date": "Næsti viðburður: 21. Nóvember, Borgarbókasafn Grófinni, Reykjavík.",
             "linkText": "Facebook viðburður"
         },
         "help": {
@@ -27,11 +28,16 @@
             "store1": "Verslað Litrófu varning",
             "storeLink": "hér",
             "p3": "Allt sem safnast fer beint í að byggja upp Litrófuna og hennar framtíðar starf."
+        },
+        "news": {
+            "title": "Fréttir",
+            "empty": "Engar fréttir í augnablikinu."
         }
     },
     "en": {
         "tabs": {
             "about": "About Litrófan",
+            "news": "News",
             "artists": "Our Artists",
             "events": "Events",
             "help": "Want to help?"
@@ -46,7 +52,7 @@
         },
         "events": {
             "title": "Events",
-            "date": "Next event: August 8th, Reykjavík City Library Grófin.",
+            "date": "Next event: November 21st, Reykjavík City Library Grófin.",
             "linkText": "Facebook Event"
         },
         "help": {
@@ -57,6 +63,10 @@
             "store1": "Buy Litrófan merchandise",
             "storeLink": "here",
             "p3": "All funds go directly into building and sustaining Litrófan and its future work."
+        },
+        "news": {
+            "title": "News",
+            "empty": "No news at the moment."
         }
     }
 }
