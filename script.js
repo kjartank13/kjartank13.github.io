@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentLang = lang;
         updateContent(lang);
         renderNews();
+        renderEvents();
     }
 
     document.getElementById('lang-is').addEventListener('click', () => {
@@ -56,8 +57,106 @@ document.addEventListener('DOMContentLoaded', () => {
             translations = data;
             updateContent(currentLang);
             renderNews();
+            renderEvents();
         })
         .catch(err => console.error('Translation load error:', err));
+
+    // Events: events.json, fields start/end (YYYY-MM-DD), title/place ({is, en}) and optional link.
+    // An event counts as past once its last day is over.
+    let events = [];
+
+    function parseDate(str) {
+        const [y, m, d] = str.split('-').map(Number);
+        return new Date(y, m - 1, d);
+    }
+
+    // Month names are spelled out here because not every browser ships Icelandic date formats
+    const MONTHS = {
+        is: ['janúar', 'febrúar', 'mars', 'apríl', 'maí', 'júní', 'júlí', 'ágúst', 'september', 'október', 'nóvember', 'desember'],
+        en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    };
+
+    // e.g. "3.–7. nóvember 2025" / "3–7 November 2025"
+    function formatEventDate(event) {
+        const months = MONTHS[currentLang] || MONTHS.is;
+        const day = d => currentLang === 'is' ? `${d.getDate()}.` : `${d.getDate()}`;
+        const dayMonth = d => `${day(d)} ${months[d.getMonth()]}`;
+        const start = parseDate(event.start);
+        const end = event.end ? parseDate(event.end) : start;
+
+        if (start.getTime() === end.getTime()) return `${dayMonth(start)} ${start.getFullYear()}`;
+        if (start.getFullYear() !== end.getFullYear()) {
+            return `${dayMonth(start)} ${start.getFullYear()} – ${dayMonth(end)} ${end.getFullYear()}`;
+        }
+        if (start.getMonth() !== end.getMonth()) return `${dayMonth(start)} – ${dayMonth(end)} ${end.getFullYear()}`;
+        return `${day(start)}–${dayMonth(end)} ${end.getFullYear()}`;
+    }
+
+    function eventCard(event) {
+        const t = key => getNestedTranslation(translations[currentLang], key) || '';
+        const pick = obj => (obj && (obj[currentLang] || obj.is)) || '';
+
+        const card = document.createElement('article');
+        card.className = 'card event-card';
+        card.innerHTML = '<i class="fa-regular fa-calendar card-icon" aria-hidden="true"></i>';
+
+        const body = document.createElement('div');
+        const title = document.createElement('h4');
+        title.textContent = pick(event.title);
+        body.appendChild(title);
+
+        const details = document.createElement('p');
+        details.className = 'event-details';
+        details.textContent = [formatEventDate(event), pick(event.place)].filter(Boolean).join(' · ');
+        body.appendChild(details);
+
+        if (event.link) {
+            const a = document.createElement('a');
+            a.href = event.link;
+            a.target = '_blank';
+            a.rel = 'noopener';
+            a.className = 'event-link';
+            a.textContent = t('events.linkText');
+            body.appendChild(a);
+        }
+
+        card.appendChild(body);
+        return card;
+    }
+
+    function renderEvents() {
+        const upcomingList = document.getElementById('upcoming-events');
+        const pastList = document.getElementById('past-events');
+        upcomingList.innerHTML = '';
+        pastList.innerHTML = '';
+
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const isPast = e => parseDate(e.end || e.start) < today;
+
+        const upcoming = events.filter(e => !isPast(e)).sort((a, b) => a.start.localeCompare(b.start));
+        const past = events.filter(isPast).sort((a, b) => b.start.localeCompare(a.start));
+
+        if (upcoming.length) {
+            upcoming.forEach(e => upcomingList.appendChild(eventCard(e)));
+        } else {
+            const p = document.createElement('p');
+            p.textContent = getNestedTranslation(translations[currentLang], 'events.none') || '';
+            upcomingList.appendChild(p);
+        }
+
+        past.forEach(e => pastList.appendChild(eventCard(e)));
+        // Hide the "Past events" heading when there is nothing under it
+        pastList.previousElementSibling.hidden = !past.length;
+    }
+
+    fetch('events.json')
+        .then(res => res.json())
+        .then(data => {
+            events = data;
+            renderEvents();
+        })
+        .catch(err => console.error('Events load error:', err));
 
     // News: Google Sheet published as CSV (File > Share > Publish to web > CSV).
     // Columns: date | title_is | text_is | title_en | text_en. One row per item, newest (bottom row) shown first.

@@ -384,3 +384,49 @@ strong {
     animation: none;
   }
 }
+
+/* Events */
+.events-heading {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 2rem 0 0.75rem;
+}
+
+.events-heading:first-of-type {
+  margin-top: 0;
+}
+
+.event-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.event-card h4 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.card .event-details {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  margin: 0.15rem 0 0;
+}
+
+.event-card .event-link {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.9375rem;
+}
+
+/* Past events are quieter so upcoming ones stand out */
+.event-list.past .card {
+  background: none;
+}
+
+.event-list.past h4 {
+  color: var(--text-muted);
+}

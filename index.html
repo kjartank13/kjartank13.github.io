@@ -83,14 +83,11 @@
             <!-- Tab 3: Events -->
             <section class="tab-content" id="tab3">
                 <h2 data-i18n="events.title"></h2>
-                <div class="card event-card">
-                    <i class="fa-regular fa-calendar card-icon" aria-hidden="true"></i>
-                    <div>
-                        <p data-i18n="events.date"></p>
-                        <!-- <a href="https://www.facebook.com/events/1495903845101944" aria-label="Litrófan art market Facebook event" class="event-link"
-                            data-i18n="events.linkText"></a> -->
-                    </div>
-                </div>
+                <!-- Events come from events.json and are split into upcoming/past by date -->
+                <h3 class="events-heading" data-i18n="events.upcoming"></h3>
+                <div class="event-list" id="upcoming-events"></div>
+                <h3 class="events-heading" data-i18n="events.past"></h3>
+                <div class="event-list past" id="past-events"></div>
             </section>
 
             <!-- Tab 4: Help -->

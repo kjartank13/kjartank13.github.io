@@ -17,7 +17,9 @@
         },
         "events": {
             "title": "Viðburðir",
-            "date": "Næsti viðburður: 21. Nóvember, Borgarbókasafn Grófinni, Reykjavík.",
+            "upcoming": "Næstu viðburðir",
+            "past": "Liðnir viðburðir",
+            "none": "Engir viðburðir á dagskrá eins og er.",
             "linkText": "Facebook viðburður"
         },
         "help": {
@@ -52,7 +54,9 @@
         },
         "events": {
             "title": "Events",
-            "date": "Next event: November 21st, Reykjavík City Library Grófin.",
+            "upcoming": "Upcoming events",
+            "past": "Past events",
+            "none": "No upcoming events at the moment.",
             "linkText": "Facebook Event"
         },
         "help": {

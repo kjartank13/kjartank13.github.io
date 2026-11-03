@@ -1,0 +1,23 @@
+[
+    {
+        "start": "2026-11-21",
+        "title": { "is": "Litrófan listamarkaður", "en": "Litrófan Art Market" },
+        "place": { "is": "Borgarbókasafnið Grófinni, Reykjavík", "en": "Reykjavík City Library, Grófin" }
+    },
+    {
+        "start": "2025-11-03",
+        "end": "2025-11-07",
+        "title": { "is": "Litrófan Art Week", "en": "Litrófan Art Week" },
+        "place": { "is": "Nýsköpunarsetrið við Lækinn, Hafnarfirði", "en": "Nýsköpunarsetrið við Lækinn, Hafnarfjörður" }
+    },
+    {
+        "start": "2025-08-08",
+        "title": { "is": "Litrófan Pride Market", "en": "Litrófan Pride Market" },
+        "place": { "is": "Borgarbókasafnið Grófinni, Reykjavík", "en": "Reykjavík City Library, Grófin" }
+    },
+    {
+        "start": "2025-03-29",
+        "title": { "is": "Litrófan Art Market", "en": "Litrófan Art Market" },
+        "place": { "is": "Borgarbókasafnið Grófinni, Reykjavík", "en": "Reykjavík City Library, Grófin" }
+    }
+]
