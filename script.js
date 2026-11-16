@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
             tabContents.forEach(tab => tab.classList.remove('active'));
             button.classList.add('active');
             document.getElementById(target).classList.add('active');
+            // Don't keep playing in a tab that's no longer visible
+            document.querySelectorAll('video').forEach(v => v.pause());
         });
     });
 

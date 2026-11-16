@@ -503,3 +503,15 @@ strong {
     padding: 1.25rem;
   }
 }
+
+/* About video: full content width, 16:9, never taller than most of the screen */
+.about-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 70vh;
+  margin-top: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
