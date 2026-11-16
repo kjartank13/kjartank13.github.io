@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateContent(lang);
         renderNews();
         renderEvents();
+        renderValues();
     }
 
     document.getElementById('lang-is').addEventListener('click', () => {
@@ -58,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateContent(currentLang);
             renderNews();
             renderEvents();
+            renderValues();
         })
         .catch(err => console.error('Translation load error:', err));
 
@@ -157,6 +159,63 @@ document.addEventListener('DOMContentLoaded', () => {
             renderEvents();
         })
         .catch(err => console.error('Events load error:', err));
+
+    // Values: values.json, per language an intro (paragraphs) and values ({title, lead?, body}).
+    let values = {};
+
+    function renderValues() {
+        const intro = document.getElementById('values-intro');
+        const list = document.getElementById('values-list');
+        intro.innerHTML = '';
+        list.innerHTML = '';
+        const content = values[currentLang] || values.is;
+        if (!content) return;
+
+        content.intro.forEach(text => {
+            const p = document.createElement('p');
+            p.textContent = text;
+            intro.appendChild(p);
+        });
+
+        content.values.forEach((value, i) => {
+            const li = document.createElement('li');
+            li.className = 'value';
+
+            const number = document.createElement('span');
+            number.className = 'value-number';
+            number.setAttribute('aria-hidden', 'true');
+            number.textContent = String(i + 1).padStart(2, '0');
+            li.appendChild(number);
+
+            const body = document.createElement('div');
+            const title = document.createElement('h3');
+            title.textContent = value.title;
+            body.appendChild(title);
+
+            if (value.lead) {
+                const lead = document.createElement('p');
+                lead.className = 'value-lead';
+                lead.textContent = value.lead;
+                body.appendChild(lead);
+            }
+            value.body.forEach(text => {
+                const p = document.createElement('p');
+                p.textContent = text;
+                body.appendChild(p);
+            });
+
+            li.appendChild(body);
+            list.appendChild(li);
+        });
+    }
+
+    fetch('values.json')
+        .then(res => res.json())
+        .then(data => {
+            values = data;
+            renderValues();
+        })
+        .catch(err => console.error('Values load error:', err));
 
     // News: Google Sheet published as CSV (File > Share > Publish to web > CSV).
     // Columns: date | title_is | text_is | title_en | text_en. One row per item, newest (bottom row) shown first.

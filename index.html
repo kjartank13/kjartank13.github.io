@@ -57,6 +57,7 @@
                 <button class="tab-button" data-tab="tab2" data-i18n="tabs.artists" hidden></button>
                 <button class="tab-button" data-tab="tab3" data-i18n="tabs.events"></button>
                 <button class="tab-button" data-tab="tab4" data-i18n="tabs.help"></button>
+                <button class="tab-button" data-tab="tab-values" data-i18n="tabs.values"></button>
             </nav>
 
             <!-- Tab 1: About -->
@@ -110,6 +111,13 @@
                     </li>
                 </ul>
                 <p data-i18n="help.p3"></p>
+            </section>
+
+            <!-- Values: loaded from values.json -->
+            <section class="tab-content" id="tab-values">
+                <h2 data-i18n="values.title"></h2>
+                <div class="values-intro" id="values-intro"></div>
+                <ol class="values-list" id="values-list"></ol>
             </section>
         </div>
     </main>

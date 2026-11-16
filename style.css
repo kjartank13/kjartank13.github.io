@@ -364,6 +364,10 @@ strong {
     margin-bottom: 2rem;
   }
 
+
+}
+
+@media (max-width: 680px) {
   /* Tabs become a 2-column grid so every tab is visible without scrolling */
   .tab-buttons {
     display: grid;
@@ -376,6 +380,11 @@ strong {
     border-radius: 14px;
     padding: 0.55rem 0.5rem;
     font-size: 0.875rem;
+  }
+
+  /* With an odd number of tabs, the last one spans the full row */
+  .tab-button:last-child {
+    grid-column: 1 / -1;
   }
 }
 
@@ -429,4 +438,68 @@ strong {
 
 .event-list.past h4 {
   color: var(--text-muted);
+}
+
+/* Values */
+.values-intro p:first-child {
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.values-list {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.value {
+  display: grid;
+  grid-template-columns: 2.75rem 1fr;
+  gap: 0.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.value-number {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Numbers step through the spectrum, lightened to read well on the dark background */
+.value:nth-child(6n+1) .value-number { color: #ff6b6b; }
+.value:nth-child(6n+2) .value-number { color: #ffa94d; }
+.value:nth-child(6n+3) .value-number { color: #ffd43b; }
+.value:nth-child(6n+4) .value-number { color: #69db7c; }
+.value:nth-child(6n+5) .value-number { color: #4dabf7; }
+.value:nth-child(6n+6) .value-number { color: #b197fc; }
+
+.value h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.45;
+  margin-bottom: 0.6rem;
+}
+
+.value-lead {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.value p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 480px) {
+  .value {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    padding: 1.25rem;
+  }
 }

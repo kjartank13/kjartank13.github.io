@@ -5,7 +5,8 @@
             "news": "Fréttir",
             "artists": "Listafólkið okkar",
             "events": "Viðburðir",
-            "help": "Viltu hjálpa?"
+            "help": "Viltu hjálpa?",
+            "values": "Gildi Litrófunnar"
         },
         "about": {
             "title": "Um Litrófuna",
@@ -34,6 +35,9 @@
         "news": {
             "title": "Fréttir",
             "empty": "Engar fréttir í augnablikinu."
+        },
+        "values": {
+            "title": "Gildi Litrófunnar"
         }
     },
     "en": {
@@ -42,7 +46,8 @@
             "news": "News",
             "artists": "Our Artists",
             "events": "Events",
-            "help": "Want to help?"
+            "help": "Want to help?",
+            "values": "Litrófan Values"
         },
         "about": {
             "title": "About Litrófan",
@@ -71,6 +76,9 @@
         "news": {
             "title": "News",
             "empty": "No news at the moment."
+        },
+        "values": {
+            "title": "Litrófan Values"
         }
     }
 }
